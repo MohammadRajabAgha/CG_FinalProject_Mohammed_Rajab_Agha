@@ -538,6 +538,9 @@ int main()
 		//lastTime = currentTime;
 
 
+		
+		//koko11
+
 		if (checkCollision(playerPos, goalPos) && goalCooldown <= 0.0f)
 		{
 			score += 10;
@@ -545,12 +548,34 @@ int main()
 
 			std::cout << "Score: " << score << std::endl;
 
-			// توليد مكان جديد
-			goalPos = glm::vec3(
-				(rand() % 10) - 5,
-				0,
-				-(rand() % 10)
-			);
+			bool valid = false;
+
+			while (!valid)
+			{
+				glm::vec3 newGoal = glm::vec3(
+					(rand() % 10) - 5,
+					0,
+					(rand() % 10) - 5
+				);
+
+				valid = true;
+
+				for (auto& wall : walls)
+				{
+					if (checkCollision(newGoal, wall))
+					{
+						valid = false;
+						break;
+					}
+				}
+
+				if (valid)
+					goalPos = newGoal;
+			}
+
+			goalCooldown = 0.5f;
+		}
+		
 
 			goalCooldown = 0.5f; // نصف ثانية منع تكرار
 		}
