@@ -537,7 +537,26 @@ int main()
 		//float deltaTime = currentTime - lastTime;
 		//lastTime = currentTime;
 
+//koko12
+		float outCooldown = -deltaTime;
 
+if ((playerPos.x < -10 || playerPos.x > 10 ||
+	playerPos.z < -10 || playerPos.z > 10)
+	&& outCooldown <= 0.0f)
+{
+	score -= 20;
+
+	system("cls");
+	system("color 0C");
+	std::cout << "Out of bounds! Score: " << score << std::endl;
+
+	playerPos = glm::vec3(0, 0, 0); // رجوع
+
+	outCooldown = 1.0f; // منع التكرار لمدة ثانية
+}
+
+
+		
 		
 		//koko11
 
@@ -546,7 +565,9 @@ int main()
 			score += 10;
 			Beep(1000, 200);
 
-			std::cout << "Score: " << score << std::endl;
+			system("cls");
+            system("color 0A");
+            std::cout << "Score: " << score << std::endl;
 
 			bool valid = false;
 
