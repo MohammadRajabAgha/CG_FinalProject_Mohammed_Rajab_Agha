@@ -1,35 +1,32 @@
-# 3D Maze Game — Computer Graphics Final Project
+# Computer Graphics Final Project — 3D Maze
 
-A simple interactive 3D maze game developed in **C++ using Modern OpenGL 3.3** as a final project for a Computer Graphics course.
+A university final project developed for the **Computer Graphics** course using **C++ and Modern OpenGL 3.3**.
 
-The project was created as a practical introduction to real-time 3D graphics and game development concepts, combining rendering, textures, camera movement, player interaction, collision detection, and a simple scoring system.
+The project was created as an academic application of the computer graphics concepts covered during the course. It implements a simple interactive 3D maze environment to demonstrate concepts such as 3D transformations, camera movement, texture mapping, shaders, keyboard interaction, and collision detection.
 
-## 🎮 Project Overview
+> **Note:** This is an academic Computer Graphics project and is not intended to represent professional game development experience.
 
-The player controls a character inside a 3D maze and must navigate through the environment to reach randomly generated targets.
+## 📌 Project Overview
 
-The game includes a scoring system:
+The project provides a simple 3D maze environment where the user can control a player and interact with objects within the scene.
 
-* **+10 points** when the player reaches a target.
-* **-20 points** when the player moves outside the playable area.
-* After collecting a target, a new target position is generated while avoiding wall collisions.
-* The current score is displayed through the console.
+The main purpose of the project is to apply fundamental **Computer Graphics** concepts in a practical implementation rather than to build a production-level game.
 
-## ✨ Features
+## ✨ Implemented Features
 
 * 3D maze environment
-* Player movement and interaction
-* Third-person camera system
-* Camera rotation around the player
-* Wall collision detection using **AABB (Axis-Aligned Bounding Box)**
-* Dynamic target generation
-* Score management system
-* Boundary/out-of-bounds detection
+* Interactive player movement
+* Third-person camera
+* Camera rotation
+* Keyboard-based interaction
 * Texture mapping
-* Depth testing
 * Vertex and Fragment Shaders
 * Perspective projection
-* Keyboard-based interaction
+* Depth testing
+* AABB-based collision detection
+* Dynamic target generation
+* Simple scoring system
+* Boundary detection
 
 ## 🎮 Controls
 
@@ -42,80 +39,87 @@ The game includes a scoring system:
 | `Q` | Rotate Camera Left  |
 | `E` | Rotate Camera Right |
 
-## 🛠️ Technologies & Libraries
-
-* **C++**
-* **Modern OpenGL 3.3 Core Profile**
-* **GLFW** — Window creation and keyboard input
-* **GLEW** — OpenGL extension loading
-* **GLM** — Mathematics and transformations
-* **stb_image** — Texture loading
-* **GLSL** — Vertex and Fragment Shaders
-* **Visual Studio** — Development environment
-
-## 🧠 Computer Graphics Concepts
-
-This project applies several fundamental Computer Graphics concepts:
+## 🧠 Computer Graphics Concepts Applied
 
 ### 3D Transformations
 
-The project uses transformation matrices for:
+The project applies transformation matrices for:
 
 * Translation
 * Scaling
-* Camera/view transformations
+* Model transformations
+* View transformations
 * Perspective projection
 
-### Camera System
+### Camera
 
-A custom camera system is used to follow the player and rotate around the game environment.
+A third-person camera system is implemented to follow the player and rotate around the scene.
 
-The camera position is calculated using trigonometric functions and the player's position, creating an orbit-style third-person view.
+The camera position is calculated using the player's position and trigonometric functions to achieve the required rotation behavior.
 
 ### Collision Detection
 
-The project implements **AABB collision detection** to prevent the player from passing through maze walls.
+**AABB (Axis-Aligned Bounding Box)** collision detection is used to detect intersections between the player and maze walls.
 
-Collision checks are performed separately along the X and Z axes to allow smoother movement around obstacles.
+The collision logic helps prevent the player from passing through obstacles.
 
 ### Texture Mapping
 
-Textures are loaded and applied to different objects in the scene, including:
-
-* Player
-* Walls
-* Goal
-* Ground
+Textures are loaded and mapped onto objects in the scene using `stb_image`.
 
 ### Shaders
 
-The rendering pipeline uses custom GLSL shaders:
+The rendering process uses GLSL shaders:
 
-* **Vertex Shader** — handles vertex transformation through Model, View, and Projection matrices.
-* **Fragment Shader** — samples textures to produce the final object appearance.
+* **Vertex Shader** — processes vertex transformations.
+* **Fragment Shader** — handles the final pixel/texture output.
 
-## 🏗️ Project Structure
+### OpenGL Rendering
 
-```text
-CG_FinalProject_Mohammed_Rajab_Agha/
-│
-├── main.cpp
-├── Camera.cpp
-├── Camera.h
-├── Texture.h
-│
-├── player.png
-├── wall.png
-├── goal.png
-│
-├── CG_Temp.sln
-├── CG_Temp.vcxproj
-├── CG_Temp.vcxproj.filters
-│
-└── README.md
-```
+The project uses the Modern OpenGL pipeline with:
 
-## 🚀 How to Run
+* Vertex Buffers
+* Vertex Attributes
+* VAOs/VBOs
+* Model/View/Projection matrices
+* Depth testing
+* Texture sampling
+
+## 🛠️ Technologies & Libraries
+
+* **C++**
+* **Modern OpenGL 3.3**
+* **GLSL**
+* **GLFW**
+* **GLEW**
+* **GLM**
+* **stb_image**
+* **Visual Studio**
+
+## 🎓 Academic Context
+
+**Course:** Computer Graphics
+**Project Type:** University Final Project
+**Programming Language:** C++
+**Graphics API:** Modern OpenGL 3.3
+
+The project was developed to demonstrate practical understanding of the fundamental concepts taught in the Computer Graphics course.
+
+## 📚 Learning Objectives
+
+Through this project, I practiced:
+
+* Understanding the OpenGL rendering pipeline
+* Working with 3D coordinate systems
+* Applying transformation matrices
+* Implementing camera movement
+* Working with textures
+* Writing basic GLSL shaders
+* Handling keyboard input
+* Implementing basic collision detection
+* Combining multiple graphics concepts into an interactive scene
+
+## 🚀 Running the Project
 
 ### Requirements
 
@@ -131,46 +135,22 @@ CG_FinalProject_Mohammed_Rajab_Agha/
 git clone https://github.com/MohammedMahmoudRajabAgha/CG_FinalProject_Mohammed_Rajab_Agha.git
 ```
 
-2. Open the solution:
+2. Open the Visual Studio solution.
 
-```text
-CG_Temp.sln
-```
+3. Build the project.
 
-3. Make sure the required OpenGL libraries and project dependencies are available.
-
-4. Build the project in Visual Studio.
-
-5. Run the application.
-
-## 🎯 Learning Objectives
-
-This project was developed to strengthen practical understanding of:
-
-* 3D graphics programming
-* OpenGL rendering pipeline
-* Vertex and fragment shaders
-* Coordinate systems and transformations
-* Camera mathematics
-* Texture mapping
-* Collision detection
-* Real-time user input
-* Basic game mechanics
-* C++ programming
+4. Run the application.
 
 ## 🔮 Possible Future Improvements
 
-The project can be extended with:
+As an academic project, the implementation can be extended with additional Computer Graphics concepts such as:
 
-* Multiple maze levels
-* More advanced player movement
-* Improved collision handling
-* Better UI for displaying the score
-* Sound effects and background music
-* Timer and game-over system
-* More detailed 3D models
-* Lighting and shadow effects
-* Improved rendering architecture
+* Lighting
+* Shadows
+* More advanced 3D models
+* Improved rendering techniques
+* More complex environments
+* Additional visual effects
 
 ## 👨‍💻 Author
 
@@ -178,8 +158,9 @@ The project can be extended with:
 
 Software Engineering Student
 
-[GitHub](https://github.com/MohammedMahmoudRajabAgha)
+GitHub:
+https://github.com/MohammedMahmoudRajabAgha
 
 ---
 
-> A learning-focused Computer Graphics project demonstrating the transition from basic OpenGL concepts to an interactive 3D environment.
+**Academic project developed for learning and applying Computer Graphics concepts using C++ and Modern OpenGL.**
